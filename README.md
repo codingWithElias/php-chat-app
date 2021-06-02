@@ -13,7 +13,7 @@ version: 1.0.0
 
 ## Full Tutorial
 
-[On Youtube](https://youtu.be/TytaDtwnj0o)
+[On Youtube](https://youtu.be/JLnsWkQ-iB8)
 
 ## Authors
 
