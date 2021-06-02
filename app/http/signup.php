@@ -104,10 +104,6 @@ if(isset($_POST['username']) &&
 			   	    exit;
 				}
 
-      		}else {
-      			$em = "unknown error occurred!";
-		      	header("Location: ../../signup.php?error=$em&$data");
-		   	    exit;
       		}
       	}
 

@@ -7,7 +7,8 @@
 
   	include 'app/helpers/user.php';
   	include 'app/helpers/conversations.php';
-  	include 'app/helpers/timeAgo.php';
+    include 'app/helpers/timeAgo.php';
+    include 'app/helpers/last_chat.php';
 
   	# Getting User data data
   	$user = getUser($_SESSION['username'], $conn);
@@ -63,6 +64,7 @@
     		    class="list-group mvh-50 overflow-auto">
     			<?php if (!empty($conversations)) { ?>
     			    <?php 
+
     			    foreach ($conversations as $conversation){ ?>
 	    			<li class="list-group-item">
 	    				<a href="chat.php?user=<?=$conversation['username']?>"
@@ -74,7 +76,12 @@
 	    					    <img src="uploads/<?=$conversation['p_p']?>"
 	    					         class="w-10 rounded-circle">
 	    					    <h3 class="fs-xs m-2">
-	    					    	<?=$conversation['name']?>
+	    					    	<?=$conversation['name']?><br>
+                      <small>
+                        <?php 
+                          echo lastChat($_SESSION['user_id'], $conversation['user_id'], $conn);
+                        ?>
+                      </small>
 	    					    </h3>            	
 	    					</div>
 	    					<?php if (last_seen($conversation['last_seen']) == "Active") { ?>

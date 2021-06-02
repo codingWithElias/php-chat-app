@@ -25,12 +25,12 @@ function getConversation($user_id, $conn){
         foreach($conversations as $conversation){
             # if conversations user_1 row equal to user_id
             if ($conversation['user_1'] == $user_id) {
-            	$sql2  = "SELECT name, username, p_p, last_seen
+            	$sql2  = "SELECT *
             	          FROM users WHERE user_id=?";
             	$stmt2 = $conn->prepare($sql2);
             	$stmt2->execute([$conversation['user_2']]);
             }else {
-            	$sql2  = "SELECT name, username, p_p, last_seen
+            	$sql2  = "SELECT *
             	          FROM users WHERE user_id=?";
             	$stmt2 = $conn->prepare($sql2);
             	$stmt2->execute([$conversation['user_1']]);
